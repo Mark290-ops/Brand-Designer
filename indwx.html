@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ralph · Brand Designer — Logo & Brand Identity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0f0f0e;
+      --off-white: #f7f5f0;
+      --warm-gray: #e8e4dc;
+      --mid-gray: #a09890;
+      --accent: #8a5d09;
+      --accent-dark: #a56d0d;
+      --text: #1a1816;
+      --text-muted: #3b3735;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 5vw; background: rgba(247,245,240,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--warm-gray); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.04em; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: white; background: var(--accent); text-decoration: none; padding: 0.55rem 1.4rem; border-radius: 2px; transition: background 0.2s, transform 0.2s; }
+    .nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 8rem 5vw 5rem; gap: 4rem; }
+    .hero-text { max-width: 560px; opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s 0.1s ease forwards; }
+    .hero-eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 2.5rem; height: 1px; background: var(--accent); }
+    .hero-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 5.5vw, 5rem); font-weight: 300; line-height: 1.1; color: var(--black); margin-bottom: 1.75rem; letter-spacing: -0.01em; }
+    .hero-heading em { font-style: italic; color: var(--accent-dark); }
+    .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; max-width: 420px; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .btn-primary { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--off-white); background: var(--black); text-decoration: none; padding: 0.85rem 2rem; border-radius: 2px; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-primary:hover { background: #2c2a28; transform: translateY(-2px); }
+    .btn-ghost { font-size: 0.85rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; padding: 0.55rem 1.25rem; border: 1px solid transparent; border-radius: 2px; }
+    .btn-ghost:hover { border-color: var(--black); }
+
+    /* HERO VISUAL */
+    .hero-visual { display: grid; grid-template-rows: auto auto; gap: 1rem; opacity: 0; transform: translateX(80px); animation: slideIn 1.0s 0.3s ease forwards; }
+    @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .hero-card-main { background: var(--black); border-radius: 8px; padding: 3rem; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .hero-card-main::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 30%, rgba(200,169,110,0.15) 0%, transparent 65%); }
+    .mock-logo { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 600; color: var(--off-white); letter-spacing: 0.08em; position: relative; z-index: 1; }
+    .mock-logo span { color: var(--accent); }
+    .mock-tagline { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid-gray); margin-top: 0.5rem; position: relative; z-index: 1; }
+    .hero-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .hero-card-sm { border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; min-height: 120px; }
+    .hero-card-sm.warm { background: var(--warm-gray); }
+    .hero-card-sm.accent { background: var(--accent); }
+    .card-sm-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; }
+    .hero-card-sm.accent .card-sm-label { color: rgba(255,255,255,0.7); }
+    .card-sm-mark { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--black); line-height: 1; }
+    .hero-card-sm.accent .card-sm-mark { color: #fff; }
+
+    /* TRUST BAR MARQUEE */
+    .trust-bar { border-top: 1px solid var(--warm-gray); border-bottom: 1px solid var(--warm-gray); padding: 1.25rem 0; display: flex; align-items: center; overflow: hidden; gap: 0; }
+    .trust-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); white-space: nowrap; font-weight: 500; padding: 0 2rem; flex-shrink: 0; border-right: 1px solid var(--warm-gray); margin-right: 0; }
+    .marquee-wrap { flex: 1; overflow: hidden; position: relative; }
+    .marquee-wrap::before, .marquee-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none; }
+    .marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--off-white), transparent); }
+    .marquee-wrap::after { right: 0; background: linear-gradient(to left, var(--off-white), transparent); }
+    .marquee-track { display: flex; gap: 0; width: max-content; animation: marquee 22s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .trust-item { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0.03em; white-space: nowrap; padding: 0 2.5rem; display: flex; align-items: center; gap: 2.5rem; }
+    .trust-item::after { content: '·'; color: var(--accent); font-size: 1.5rem; line-height: 1; }
+
+    /* SECTION COMMONS */
+    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 5rem; align-items: end; }
+    .section-eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+    .section-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 3.8vw, 3.2rem); font-weight: 300; line-height: 1.2; color: var(--black); }
+    .section-sub { font-size: 1rem; color: var(--text-muted); font-weight: 300; max-width: 380px; }
+
+    /* ── LIVE BRAND PREVIEW ── */
+    #preview { padding: 7rem 5vw; background: #fff; border-bottom: 1px solid var(--warm-gray); }
+    .preview-wrap { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center; }
+    .preview-controls { display: flex; flex-direction: column; gap: 1.5rem; }
+    .preview-input-label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; display: block; }
+    .preview-input { font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--text); background: var(--off-white); border: 1px solid var(--warm-gray); border-radius: 4px; padding: 0.75rem 1rem; width: 100%; outline: none; transition: border-color 0.2s; }
+    .preview-input:focus { border-color: var(--accent); }
+    .style-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .style-pill { font-size: 0.78rem; font-weight: 400; padding: 0.4rem 1rem; border-radius: 20px; border: 1px solid var(--warm-gray); cursor: pointer; background: transparent; color: var(--text-muted); font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+    .style-pill.active, .style-pill:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .preview-canvas { display: flex; flex-direction: column; gap: 1rem; }
+    .preview-card { border-radius: 8px; padding: 2.5rem 3rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px; transition: all 0.35s ease; position: relative; overflow: hidden; }
+    .preview-card.dark { background: var(--black); }
+    .preview-card.light { background: var(--off-white); border: 1px solid var(--warm-gray); }
+    .preview-card.colored { background: var(--accent); }
+    .preview-brand-name { transition: all 0.3s ease; text-align: center; }
+    .preview-brand-name.dark { color: #fff; }
+    .preview-brand-name.light { color: var(--black); }
+    .preview-brand-name.colored { color: #fff; }
+    .preview-hint { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem; }
+    .preview-hint.dark { color: var(--mid-gray); }
+    .preview-hint.light { color: var(--mid-gray); }
+    .preview-hint.colored { color: rgba(255,255,255,0.65); }
+
+    /* styles applied via JS */
+    .style-serif { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+    .style-sans { font-family: 'DM Sans', sans-serif; font-weight: 500; letter-spacing: 0.06em; }
+    .style-mono { font-family: monospace; font-weight: 400; letter-spacing: 0.12em; }
+    .style-elegant { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; }
+
+    /* ── SERVICES ── */
+    #services { padding: 7rem 5vw; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .service-card { background: #fff; border: 1px solid var(--warm-gray); border-radius: 8px; padding: 2.5rem; transition: transform 0.25s, border-color 0.25s; position: relative; overflow: hidden; }
+    .service-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .service-number { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: var(--warm-gray); line-height: 1; margin-bottom: 1.5rem; }
+    .service-title { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--black); margin-bottom: 0.75rem; }
+    .service-desc { font-size: 0.92rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; margin-bottom: 1.75rem; }
+    .service-price { font-size: 1.35rem; font-weight: 500; color: var(--black); }
+    .service-price span { font-size: 0.82rem; font-weight: 400; color: var(--text-muted); margin-left: 0.3rem; }
+    .service-includes { margin-top: 1rem; list-style: none; }
+    .service-includes li { font-size: 0.85rem; color: var(--text-muted); font-weight: 300; padding: 0.3rem 0; display: flex; align-items: center; gap: 0.5rem; }
+    .service-includes li::before { content: '—'; color: var(--accent); font-size: 0.8rem; }
+
+    /* compare toggle */
+    .compare-toggle-wrap { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
+    .compare-toggle-wrap p { font-size: 0.85rem; color: var(--text-muted); }
+    .toggle-btn { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.45rem 1.1rem; border: 1px solid var(--warm-gray); background: transparent; border-radius: 2px; cursor: pointer; color: var(--text-muted); transition: all 0.2s; }
+    .toggle-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .compare-table-wrap { display: none; margin-bottom: 3rem; overflow-x: auto; }
+    .compare-table-wrap.open { display: block; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .compare-table th { font-weight: 500; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--warm-gray); background: var(--off-white); }
+    .compare-table th:first-child { width: 38%; }
+    .compare-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--warm-gray); color: var(--text-muted); font-weight: 300; vertical-align: middle; }
+    .compare-table td:first-child { font-weight: 400; color: var(--text); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .check { color: var(--accent); font-size: 1rem; }
+    .dash { color: var(--warm-gray); }
+
+    /* ── TURNAROUND CALCULATOR ── */
+    #calculator { padding: 6rem 5vw; background: var(--off-white); border-top: 1px solid var(--warm-gray); border-bottom: 1px solid var(--warm-gray); }
+    .calc-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .calc-controls { display: flex; flex-direction: column; gap: 1.5rem; }
+    .calc-label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; display: block; }
+    .calc-input { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--text); background: #fff; border: 1px solid var(--warm-gray); border-radius: 4px; padding: 0.75rem 1rem; width: 100%; outline: none; transition: border-color 0.2s; }
+    .calc-input:focus { border-color: var(--accent); }
+    .calc-result { background: #fff; border: 1px solid var(--warm-gray); border-radius: 8px; padding: 2.5rem; }
+    .calc-result-pkg { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--black); margin-bottom: 0.5rem; }
+    .calc-result-date { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; margin-bottom: 1.5rem; }
+    .calc-result-days { display: inline-block; font-size: 2.5rem; font-family: 'Cormorant Garamond', serif; font-weight: 300; color: var(--accent-dark); line-height: 1; }
+    .calc-days-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); margin-top: 0.3rem; }
+    .calc-rush-note { font-size: 0.82rem; color: #b05a00; background: #fef3e2; border: 1px solid #f5c97a; border-radius: 4px; padding: 0.6rem 0.9rem; margin-top: 1rem; display: none; }
+
+    /* ── PORTFOLIO CAROUSEL ── */
+    #portfolio {
+      padding: 7rem 0;
+      position: relative;
+      overflow: hidden;
+      background: ;
+    }
+    #portfolio::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(138,93,9,0.25) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 30%, rgba(100,80,180,0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .portfolio-header {
+      padding: 0 5vw;
+      margin-bottom: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      gap: 2rem;
+    }
+    .portfolio-header .section-eyebrow { color: var(--accent); }
+    .portfolio-header .section-heading { color: #f7f5f0; }
+    .portfolio-header .section-sub { color: rgba(255,255,255,0.45); }
+
+    /* Fan carousel */
+    .carousel-stage {
+      position: relative;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1200px;
+    }
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .c-card {
+      position: absolute;
+      width: 240px;
+      height: 300px;
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+      user-select: none;
+    }
+    .c-card-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    /* Glassmorphism overlay at bottom of each card */
+    .c-card-glass {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.25rem 1.25rem 1rem;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .c-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.1rem;
+    }
+    .c-card-type {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    /* Nav arrows */
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .carousel-arrow {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .carousel-arrow:hover {
+      background: rgba(138,93,9,0.5);
+      border-color: var(--accent);
+    }
+
+    /* ── PROCESS ── */
+    #process { padding: 7rem 5vw; background: var(--black); color: var(--off-white); }
+    #process .section-eyebrow { color: var(--accent); }
+    #process .section-heading { color: var(--off-white); }
+    #process .section-sub { color: var(--mid-gray); }
+    .process-timeline { margin-top: 4rem; position: relative; }
+    .process-timeline::before { content: ''; position: absolute; top: 28px; left: 28px; right: 28px; height: 1px; background: rgba(255,255,255,0.1); }
+    .process-steps-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .process-step { padding: 0 2rem 2.5rem; position: relative; opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .process-step.visible { opacity: 1; transform: translateY(0); }
+    .process-dot { width: 56px; height: 56px; border-radius: 50%; background: rgba(200,169,110,0.12); border: 1px solid rgba(200,169,110,0.3); display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; position: relative; z-index: 1; }
+    .process-dot-num { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--accent); }
+    .process-step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--off-white); margin-bottom: 0.65rem; }
+    .process-step-desc { font-size: 0.88rem; color: var(--mid-gray); font-weight: 300; line-height: 1.65; }
+    .process-step-days { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(200,169,110,0.6); margin-top: 0.75rem; }
+
+    /* ── COLOUR PALETTE TEASER ── */
+    #palettes { padding: 5rem 5vw; background: #fff; border-bottom: 1px solid var(--warm-gray); }
+    .palette-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+    .palette-regenerate { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-dark); background: transparent; border: 1px solid var(--accent); border-radius: 2px; padding: 0.5rem 1.1rem; cursor: pointer; transition: all 0.2s; }
+    .palette-regenerate:hover { background: var(--accent); color: #fff; }
+    .palette-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .palette-item { border-radius: 8px; overflow: hidden; border: 1px solid var(--warm-gray); }
+    .palette-swatches { display: flex; height: 80px; }
+    .palette-swatch { flex: 1; }
+    .palette-meta { padding: 0.85rem 1rem; }
+    .palette-mood { font-size: 0.8rem; font-weight: 500; color: var(--text); margin-bottom: 0.2rem; }
+    .palette-hex { font-size: 0.7rem; font-family: monospace; color: var(--mid-gray); }
+
+    /* ── GUARANTEE ── */
+    .guarantee { padding: 5rem 5vw; border-bottom: 1px solid var(--warm-gray); }
+    .guarantee-inner { background: #fff; border: 1px solid var(--warm-gray); border-radius: 8px; padding: 3rem 4rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; }
+    .guarantee-heading { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--black); margin-bottom: 0.75rem; }
+    .guarantee-text { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; max-width: 520px; }
+    .guarantee-badge { width: 100px; height: 100px; border: 2px solid var(--accent); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex-shrink: 0; }
+    .guarantee-badge strong { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--accent-dark); line-height: 1; }
+    .guarantee-badge small { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.2rem; }
+
+    /* ── CURRENCY TOGGLE ── */
+    .currency-bar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; }
+    .currency-bar span { font-size: 0.78rem; color: var(--text-muted); font-weight: 400; margin-right: 0.5rem; }
+    .currency-btn { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500; padding: 0.35rem 0.85rem; border: 1px solid var(--warm-gray); background: transparent; border-radius: 2px; cursor: pointer; color: var(--text-muted); transition: all 0.2s; }
+    .currency-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ── CONTACT ── */
+    #contact { padding: 7rem 5vw; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-info-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,3vw,2.8rem); font-weight: 300; line-height: 1.2; color: var(--black); margin-bottom: 1.25rem; }
+    .contact-info-text { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; margin-bottom: 2.5rem; }
+    .contact-meta { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-meta-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--text-muted); }
+    .contact-meta-icon { width: 36px; height: 36px; background: var(--warm-gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+    input, textarea, select { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300; color: var(--text); background: #fff; border: 1px solid var(--warm-gray); border-radius: 4px; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; width: 100%; }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+    textarea { resize: vertical; min-height: 130px; }
+    .form-submit { font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--off-white); background: var(--black); border: none; padding: 1rem 2rem; border-radius: 4px; cursor: pointer; transition: background 0.2s, transform 0.15s; align-self: flex-start; }
+    .form-submit:hover { background: #2c2a28; transform: translateY(-2px); }
+    .form-success { display: none; background: #f0faf4; border: 1px solid #b2dfcc; border-radius: 4px; padding: 1rem 1.25rem; font-size: 0.9rem; color: #1a5c36; }
+
+    /* ── FLOATING BUTTONS ── */
+    .floating-btns { position: fixed; bottom: 2rem; right: 2rem; display: flex; flex-direction: column; gap: 0.75rem; z-index: 300; }
+    .float-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.3rem; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; }
+    .float-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .float-wa { background: #25d366; }
+    .float-mail { background: var(--accent); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--warm-gray); padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--text-muted); }
+    .footer-copy { font-size: 0.8rem; color: var(--mid-gray); }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 6rem; }
+      .hero-visual { order: -1; }
+      .section-header { grid-template-columns: 1fr; }
+      .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+      .process-steps-row { grid-template-columns: 1fr 1fr; }
+      .process-timeline::before { display: none; }
+      .contact-grid, .calc-inner, .preview-wrap { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .guarantee-inner { grid-template-columns: 1fr; }
+      .guarantee-badge { display: none; }
+      .nav-links { display: none; }
+      .palette-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Ralph · Brand Designer</a>
+  <ul class="nav-links">
+    <li><a href="#preview">Preview</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Start a Project</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Brand Identity Designer</p>
+    <h1 class="hero-heading">Brands that<br /><em>command attention</em><br />and trust</h1>
+    <p class="hero-sub">I craft distinctive logos and visual identities for startups and businesses that want to stand out, not blend in.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#contact">Get a Quote</a>
+      <a class="btn-ghost" href="#services">↓ View Packages</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-main">
+      <div class="mock-logo">A<span>X</span>IS</div>
+      <p class="mock-tagline">Architecture &amp; Design Studio</p>
+    </div>
+    <div class="hero-cards-row">
+      <div class="hero-card-sm warm">
+        <p class="card-sm-label">Wordmark</p>
+        <div class="card-sm-mark">Verve</div>
+      </div>
+      <div class="hero-card-sm accent">
+        <p class="card-sm-label">Monogram</p>
+        <div class="card-sm-mark">RM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR MARQUEE -->
+<div class="trust-bar">
+  <p class="trust-label">Trusted by</p>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="trust-item">Startups</span>
+      <span class="trust-item">E-commerce Stores</span>
+      <span class="trust-item">Coaches &amp; Consultants</span>
+      <span class="trust-item">SaaS Companies</span>
+      <span class="trust-item">Personal Brands</span>
+      <span class="trust-item">Creative Agencies</span>
+      <span class="trust-item">Entrepreneurs</span>
+      <span class="trust-item">Startups</span>
+      <span class="trust-item">E-commerce Stores</span>
+      <span class="trust-item">Coaches &amp; Consultants</span>
+      <span class="trust-item">SaaS Companies</span>
+      <span class="trust-item">Personal Brands</span>
+      <span class="trust-item">Creative Agencies</span>
+      <span class="trust-item">Entrepreneurs</span>
+    </div>
+  </div>
+</div>
+
+<!-- LIVE BRAND PREVIEW -->
+<section id="preview">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-eyebrow">Try It Live</p>
+      <h2 class="section-heading">See your brand name come to life</h2>
+    </div>
+    <p class="section-sub">Type your business name below and see how it could look as a professional logo mark.</p>
+  </div>
+  <div class="preview-wrap">
+    <div class="preview-controls reveal">
+      <div>
+        <label class="preview-input-label" for="brandInput">Your Business Name</label>
+        <input class="preview-input" id="brandInput" type="text" placeholder="e.g. Nova Studio" maxlength="24" />
+      </div>
+      <div>
+        <label class="preview-input-label">Logo Style</label>
+        <div class="style-pills">
+          <button class="style-pill active" data-style="style-serif" data-size="2.6rem">Serif</button>
+          <button class="style-pill" data-style="style-sans" data-size="1.8rem">Sans</button>
+          <button class="style-pill" data-style="style-mono" data-size="1.5rem">Mono</button>
+          <button class="style-pill" data-style="style-elegant" data-size="2.8rem">Elegant</button>
+        </div>
+      </div>
+      <p style="font-size:0.82rem;color:var(--mid-gray);font-weight:300;line-height:1.6;">This is a live preview of your name in different logo styles. The final design will be custom-crafted — not just a font choice.</p>
+      <a class="btn-primary" href="#contact" style="align-self:flex-start;">Get the real thing →</a>
+    </div>
+    <div class="preview-canvas reveal" id="previewCanvas">
+      <div class="preview-card dark">
+        <div class="preview-brand-name dark style-serif" id="prevDark" style="font-size:2.6rem;">Nova Studio</div>
+        <div class="preview-hint dark">Dark background</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div class="preview-card light">
+          <div class="preview-brand-name light style-serif" id="prevLight" style="font-size:2.6rem;">Nova Studio</div>
+          <div class="preview-hint light">Light background</div>
+        </div>
+        <div class="preview-card colored">
+          <div class="preview-brand-name colored style-serif" id="prevColor" style="font-size:2.6rem;">Nova Studio</div>
+          <div class="preview-hint colored">Brand color</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-eyebrow">What I Offer</p>
+      <h2 class="section-heading">Three packages,<br />one clear outcome</h2>
+    </div>
+    <p class="section-sub">Every package is built for a specific stage of your business. No fluff — just what you actually need.</p>
+  </div>
+
+  <!-- Currency toggle -->
+  <div class="currency-bar">
+    <span>Prices in</span>
+    <button class="currency-btn active" data-currency="USD">USD $</button>
+    <button class="currency-btn" data-currency="GBP">GBP £</button>
+    <button class="currency-btn" data-currency="EUR">EUR €</button>
+  </div>
+
+  <!-- Compare toggle -->
+  <div class="compare-toggle-wrap">
+    <p>Not sure which package fits?</p>
+    <button class="toggle-btn" id="compareToggle">Compare all features</button>
+  </div>
+  <div class="compare-table-wrap" id="compareTable">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Logo Essentials</th>
+          <th>Brand Identity</th>
+          <th>Full Package</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Logo concepts</td><td>3</td><td>3</td><td>3</td></tr>
+        <tr><td>Revision rounds</td><td>2</td><td>3</td><td>Unlimited (30d)</td></tr>
+        <tr><td>File formats (PNG/SVG/PDF)</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Light &amp; dark versions</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Color palette &amp; typography</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Brand style guide</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Business card mockup</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Social media kit</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Email signature design</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Letterhead &amp; invoice template</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>3 social media banner templates</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Priority support</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Turnaround</td><td>5–7 days</td><td>7–10 days</td><td>10–14 days</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-number">01</div>
+      <h3 class="service-title">Logo Essentials</h3>
+      <p class="service-desc">Perfect for founders who need a clean, professional logo fast — without the agency price tag.</p>
+      <div class="service-price"><span class="price-val" data-usd="149.99" data-gbp="118" data-eur="138">$149.99</span> <span>one-time</span></div>
+      <ul class="service-includes">
+        <li>3 initial logo concepts</li>
+        <li>2 rounds of revisions</li>
+        <li>PNG, SVG, PDF files</li>
+        <li>Light &amp; dark versions</li>
+        <li>5–7 day turnaround</li>
+      </ul>
+    </div>
+    <div class="service-card reveal" style="border-color:var(--accent);">
+      <div style="position:absolute;top:1.5rem;right:1.5rem;background:var(--accent);color:#fff;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:2px;font-weight:500;">Most Popular</div>
+      <div class="service-number">02</div>
+      <h3 class="service-title">Brand Identity</h3>
+      <p class="service-desc">A complete visual system — logo, colors, typography, and usage guidelines — so your brand looks consistent everywhere.</p>
+      <div class="service-price"><span class="price-val" data-usd="349.99" data-gbp="278" data-eur="322">$349.99</span> <span>one-time</span></div>
+      <ul class="service-includes">
+        <li>Everything in Essentials</li>
+        <li>Color palette &amp; typography</li>
+        <li>Brand style guide (PDF)</li>
+        <li>Business card mockup</li>
+        <li>Social media kit</li>
+        <li>3 rounds of revisions</li>
+      </ul>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">03</div>
+      <h3 class="service-title">Full Brand Package</h3>
+      <p class="service-desc">For businesses ready to go all in — a comprehensive identity system with everything you need to launch confidently.</p>
+      <div class="service-price"><span class="price-val" data-usd="649.99" data-gbp="518" data-eur="600">$649.99</span> <span>one-time</span></div>
+      <ul class="service-includes">
+        <li>Everything in Brand Identity</li>
+        <li>Email signature design</li>
+        <li>Letterhead &amp; invoice template</li>
+        <li>3 social media banner templates</li>
+        <li>Unlimited revisions (30 days)</li>
+        <li>Priority support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE (moved up near pricing) -->
+<section class="guarantee">
+  <div class="guarantee-inner reveal">
+    <div>
+      <h3 class="guarantee-heading">100% satisfaction guaranteed</h3>
+      <p class="guarantee-text">If you're not happy with the direction after the first round of concepts, I'll refund your payment — no questions asked. I only succeed when you do.</p>
+    </div>
+    <div class="guarantee-badge">
+      <strong>100%</strong>
+      <small>Satisfaction<br />Guarantee</small>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO CAROUSEL -->
+<section id="portfolio">
+  <div class="portfolio-header reveal">
+    <div>
+      <p class="section-eyebrow">Personal Works</p>
+      <h2 class="section-heading">Brands I've helped<br />build from scratch</h2>
+    </div>
+    <p class="section-sub">Each identity was crafted to communicate a specific feeling and attract the right audience.</p>
+  </div>
+
+  <div class="carousel-stage">
+    <div class="carousel-track" id="carouselTrack"></div>
+  </div>
+
+  <div class="carousel-nav">
+    <button class="carousel-arrow" id="carouselPrev" aria-label="Previous">&#8592;</button>
+    <button class="carousel-arrow" id="carouselNext" aria-label="Next">&#8594;</button>
+  </div>
+</section>
+
+<!-- TURNAROUND CALCULATOR -->
+<section id="calculator">
+  <div class="section-header reveal" style="margin-bottom:3rem;">
+    <div>
+      <p class="section-eyebrow">Turnaround Calculator</p>
+      <h2 class="section-heading">When do you need it by?</h2>
+    </div>
+    <p class="section-sub">Tell me your deadline and I'll show you which package fits — and whether a rush is needed.</p>
+  </div>
+  <div class="calc-inner">
+    <div class="calc-controls reveal">
+      <div>
+        <label class="calc-label" for="calcDate">I need my logo by</label>
+        <input class="calc-input" type="date" id="calcDate" />
+      </div>
+      <div>
+        <label class="calc-label" for="calcPkg">Package I'm interested in</label>
+        <select class="calc-input" id="calcPkg">
+          <option value="7">Logo Essentials (5–7 days)</option>
+          <option value="10" selected>Brand Identity (7–10 days)</option>
+          <option value="14">Full Brand Package (10–14 days)</option>
+        </select>
+      </div>
+    </div>
+    <div class="calc-result reveal" id="calcResult">
+      <p style="font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid-gray);margin-bottom:1rem;">Your result</p>
+      <p class="calc-result-pkg" id="calcPkgName">Brand Identity</p>
+      <p class="calc-result-date" id="calcDeliveryDate">Select a date to see your delivery estimate</p>
+      <div class="calc-result-days" id="calcDaysLeft" style="display:none;"></div>
+      <div class="calc-days-label" id="calcDaysLabel" style="display:none;">days until your deadline</div>
+      <div class="calc-rush-note" id="calcRushNote">Rush may apply — let's discuss. I'll do my best to meet your timeline.</div>
+      <a href="#contact" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Book this package</a>
+    </div>
+  </div>
+</section>
+
+<!-- COLOUR PALETTE TEASER -->
+<section id="palettes">
+  <div class="palette-header reveal">
+    <div>
+      <p class="section-eyebrow">Colour Inspiration</p>
+      <h2 class="section-heading" style="font-size:clamp(1.8rem,2.8vw,2.4rem);">Brand palette ideas, generated fresh</h2>
+    </div>
+    <button class="palette-regenerate" id="regenPalettes">Regenerate ↻</button>
+  </div>
+  <div class="palette-row" id="paletteRow"></div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-header" style="grid-template-columns:1fr 1fr;">
+    <div>
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="section-heading" style="color:var(--off-white);">Simple, transparent<br />process</h2>
+    </div>
+    <p class="section-sub">No confusion, no delays. You'll always know where we are and what comes next.</p>
+  </div>
+  <div class="process-timeline">
+    <div class="process-steps-row">
+      <div class="process-step">
+        <div class="process-dot"><span class="process-dot-num">01</span></div>
+        <h3 class="process-step-title">Discovery</h3>
+        <p class="process-step-desc">You fill out a brief questionnaire about your business, audience, and vision. I study your industry and competitors.</p>
+        <p class="process-step-days">Day 1</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"><span class="process-dot-num">02</span></div>
+        <h3 class="process-step-title">Concepts</h3>
+        <p class="process-step-desc">I present 2–3 distinct logo directions. Each one is intentional — grounded in strategy, not guesswork.</p>
+        <p class="process-step-days">Day 3–4</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"><span class="process-dot-num">03</span></div>
+        <h3 class="process-step-title">Refinement</h3>
+        <p class="process-step-desc">We collaborate on your chosen direction — adjusting colors, spacing, and details until it's exactly right.</p>
+        <p class="process-step-days">Day 5–6</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"><span class="process-dot-num">04</span></div>
+        <h3 class="process-step-title">Delivery</h3>
+        <p class="process-step-desc">You receive all final files in every format you'll ever need — organized, labeled, and ready to use anywhere.</p>
+        <p class="process-step-days">Day 7</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="section-eyebrow">Let's Work Together</p>
+      <h2 class="contact-info-heading">Ready to build your brand?</h2>
+      <p class="contact-info-text">Fill out the form and I'll get back to you within 24 hours with a custom quote and next steps.</p>
+      <div class="contact-meta">
+        <div class="contact-meta-item">
+          <div class="contact-meta-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span>Response within 24 hours</span>
+        </div>
+        <div class="contact-meta-item">
+          <div class="contact-meta-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <span>Working with clients worldwide</span>
+        </div>
+        <div class="contact-meta-item">
+          <div class="contact-meta-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <span>Payments via PayPal, Wise, or Payoneer</span>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Ozor Mark" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="name@domain.com" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="package">Package Interest</label>
+        <select id="package" name="package">
+          <option value="">Select a package…</option>
+          <option value="essentials">Logo Essentials — $150</option>
+          <option value="identity">Brand Identity — $350</option>
+          <option value="full">Full Brand Package — $650</option>
+          <option value="custom">Not sure — let's talk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell me about your project</label>
+        <textarea id="message" name="message" placeholder="What does your business do? What feeling should your brand convey?"></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message →</button>
+      <div class="form-success" id="formSuccess">Message sent ✓ I'll be in touch within 24 hours.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">Ralph Studio</p>
+  <p class="footer-copy">© 2025 Ralph Studio. All rights reserved.</p>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-btns">
+  <a class="float-btn float-wa" href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" rel="noopener" title="Chat on WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+  <a class="float-btn float-mail" href="#contact" title="Send an email">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  </a>
+</div>
+
+<script>
+/* ── SCROLL REVEAL ── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal, .process-step').forEach(el => {
+  el.classList.add('reveal');
+  revealObs.observe(el);
+});
+
+/* ── LIVE BRAND PREVIEW ── */
+const brandInput = document.getElementById('brandInput');
+const prevEls = [
+  document.getElementById('prevDark'),
+  document.getElementById('prevLight'),
+  document.getElementById('prevColor')
+];
+let currentStyle = 'style-serif';
+let currentSize = '2.6rem';
+
+function updatePreview() {
+  const val = brandInput.value.trim() || 'Your Brand';
+  prevEls.forEach(el => {
+    el.textContent = val;
+    el.className = el.className.replace(/style-\w+/g, '').trim();
+    el.classList.add(currentStyle);
+    el.style.fontSize = currentSize;
+  });
+}
+
+brandInput.addEventListener('input', updatePreview);
+
+document.querySelectorAll('.style-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.style-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    currentStyle = pill.dataset.style;
+    currentSize = pill.dataset.size;
+    updatePreview();
+  });
+});
+
+/* ── CURRENCY TOGGLE ── */
+const rates = { USD: { sym: '$', rate: 1 }, GBP: { sym: '£', rate: 0.787 }, EUR: { sym: '€', rate: 0.921 } };
+let activeCurrency = 'USD';
+
+document.querySelectorAll('.currency-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    activeCurrency = btn.dataset.currency;
+    document.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const { sym, rate } = rates[activeCurrency];
+    document.querySelectorAll('.price-val').forEach(el => {
+      const usd = parseFloat(el.dataset.usd);
+      const converted = (usd * rate).toFixed(2);
+      el.textContent = sym + converted;
+    });
+  });
+});
+
+/* ── COMPARE TOGGLE ── */
+const compareToggle = document.getElementById('compareToggle');
+const compareTable = document.getElementById('compareTable');
+compareToggle.addEventListener('click', () => {
+  const open = compareTable.classList.toggle('open');
+  compareToggle.classList.toggle('active', open);
+  compareToggle.textContent = open ? 'Hide comparison' : 'Compare all features';
+});
+
+/* ── TURNAROUND CALCULATOR ── */
+const calcDate = document.getElementById('calcDate');
+const calcPkg = document.getElementById('calcPkg');
+const calcDelivery = document.getElementById('calcDeliveryDate');
+const calcDaysLeft = document.getElementById('calcDaysLeft');
+const calcDaysLabel = document.getElementById('calcDaysLabel');
+const calcRush = document.getElementById('calcRushNote');
+const calcPkgName = document.getElementById('calcPkgName');
+const pkgNames = { '7': 'Logo Essentials', '10': 'Brand Identity', '14': 'Full Brand Package' };
+
+const today = new Date();
+const minDate = today.toISOString().split('T')[0];
+calcDate.setAttribute('min', minDate);
+
+function calcResult() {
+  const days = parseInt(calcPkg.value);
+  calcPkgName.textContent = pkgNames[calcPkg.value];
+  if (!calcDate.value) { calcDelivery.textContent = 'Select a date to see your delivery estimate'; calcDaysLeft.style.display = 'none'; calcDaysLabel.style.display = 'none'; calcRush.style.display = 'none'; return; }
+  const deadline = new Date(calcDate.value + 'T00:00:00');
+  const deliveryDate = new Date(today);
+  deliveryDate.setDate(deliveryDate.getDate() + days);
+  const diff = Math.round((deadline - today) / (1000 * 60 * 60 * 24));
+  const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  calcDelivery.textContent = 'Estimated delivery: ' + deliveryDate.toLocaleDateString('en-GB', opts);
+  calcDaysLeft.textContent = diff;
+  calcDaysLeft.style.display = 'block';
+  calcDaysLabel.style.display = 'block';
+  calcRush.style.display = diff < days ? 'block' : 'none';
+}
+
+calcDate.addEventListener('change', calcResult);
+calcPkg.addEventListener('change', calcResult);
+
+/* ── COLOUR PALETTE TEASER ── */
+const paletteSets = [
+  { mood: 'Bold & Modern', colors: ['#1a1a2e','#16213e','#0f3460','#e94560'] },
+  { mood: 'Warm Luxury', colors: ['#2c1810','#8b4513','#c8963e','#f5e6d3'] },
+  { mood: 'Fresh & Clean', colors: ['#2d6a4f','#40916c','#74c69d','#d8f3dc'] },
+  { mood: 'Soft & Elegant', colors: ['#6d4c7d','#9b72aa','#d4a5d5','#f5e6f5'] },
+  { mood: 'Corporate Trust', colors: ['#1b2a4a','#2563a8','#6fa3dc','#e8f0fa'] },
+  { mood: 'Earthy Organic', colors: ['#3d2b1f','#7c5c3e','#b89070','#f2e4d4'] },
+  { mood: 'Electric Energy', colors: ['#0d0d0d','#1a1a2e','#7b2ff7','#00d4ff'] },
+  { mood: 'Minimal Frost', colors: ['#e8edf2','#b8c9d9','#6e8fa8','#2c4a6e'] },
+  { mood: 'Sunset Brand', colors: ['#2d1b33','#8b3a62','#d4704e','#f5b971'] },
+  { mood: 'Ocean Depth', colors: ['#001219','#005f73','#0a9396','#94d2bd'] },
+  { mood: 'Classic Heritage', colors: ['#1c1c1c','#8b0000','#c0a060','#f5f0e8'] },
+  { mood: 'Neon Noir', colors: ['#0a0a0a','#1a1a1a','#39ff14','#ffffff'] },
+];
+
+function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
+
+function renderPalettes() {
+  const row = document.getElementById('paletteRow');
+  const chosen = shuffle(paletteSets).slice(0, 4);
+  row.innerHTML = chosen.map(p => `
+    <div class="palette-item">
+      <div class="palette-swatches">${p.colors.map(c => `<div class="palette-swatch" style="background:${c}"></div>`).join('')}</div>
+      <div class="palette-meta">
+        <p class="palette-mood">${p.mood}</p>
+        <p class="palette-hex">${p.colors.join(' · ')}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+renderPalettes();
+document.getElementById('regenPalettes').addEventListener('click', renderPalettes);
+
+/* ── PORTFOLIO FAN CAROUSEL ── */
+const portfolioItems = [
+  {
+    name: 'Axis Studio',
+    type: 'Architecture · Full Brand',
+    bg: '#0f0f0e',
+    html: `<div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:#fff;letter-spacing:0.1em;">A<span style="color:#8a5d09;">X</span>IS</div><div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.4rem;">Architecture Studio</div>`
+  },
+  {
+    name: 'Verve Interiors',
+    type: 'Interior Design · Brand Identity',
+    bg: 'linear-gradient(135deg,#e8ddd0,#f5ede0)',
+    html: `<div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;font-style:italic;color:#2c2420;letter-spacing:0.04em;">Verve</div>`
+  },
+  {
+    name: 'Nova Health',
+    type: 'Wellness · Brand Identity',
+    bg: 'linear-gradient(145deg,#0d2818,#1a3d24)',
+    html: `<div style="font-family:'DM Sans',sans-serif;font-size:1.5rem;font-weight:500;color:#a8d4a8;letter-spacing:0.22em;text-transform:uppercase;">NOVA</div><div style="width:40px;height:2px;background:#4caf80;margin:0.7rem auto 0;"></div>`
+  },
+  {
+    name: 'Prism SaaS',
+    type: 'Tech Startup · Logo Essentials',
+    bg: 'linear-gradient(135deg,#1a0a2e,#2d1b4e)',
+    html: `<div style="font-family:'DM Sans',sans-serif;font-size:1.6rem;font-weight:500;color:#b39dff;letter-spacing:0.1em;">PRISM</div><div style="font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(179,157,255,0.45);margin-top:0.4rem;">Analytics Platform</div>`
+  },
+  {
+    name: 'Ruche Collective',
+    type: 'Fashion · Full Brand Package',
+    bg: 'linear-gradient(135deg,#1c1c2e,#2a2a40)',
+    html: `<div style="display:flex;align-items:center;gap:0.7rem;"><div style="width:44px;height:44px;border-radius:50%;background:#e8c94a;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#1c1c2e;">R</div><div style="font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:500;color:#fff;letter-spacing:0.06em;">Ruche</div></div>`
+  },
+  {
+    name: 'Crest Financial',
+    type: 'Fintech · Brand Identity',
+    bg: 'linear-gradient(135deg,#fff8f0,#faeedd)',
+    html: `<div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#8a5d09;letter-spacing:0.14em;">CREST</div><div style="width:50px;height:1px;background:#c8963e;margin:0.6rem auto 0;"></div>`
+  },
+];
+
+const track = document.getElementById('carouselTrack');
+let activeIdx = Math.floor(portfolioItems.length / 2);
+
+function buildCards() {
+  track.innerHTML = '';
+  const total = portfolioItems.length;
+  portfolioItems.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.className = 'c-card';
+    el.innerHTML = `
+      <div class="c-card-inner" style="background:${item.bg};">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:2rem;">${item.html}</div>
+        <div class="c-card-glass">
+          <p class="c-card-name">${item.name}</p>
+          <p class="c-card-type">${item.type}</p>
+        </div>
+      </div>`;
+    el.addEventListener('click', () => { activeIdx = i; positionCards(); });
+    track.appendChild(el);
+  });
+  positionCards();
+}
+
+function positionCards() {
+  const cards = track.querySelectorAll('.c-card');
+  const total = cards.length;
+  cards.forEach((card, i) => {
+    const offset = i - activeIdx;
+    const absOffset = Math.abs(offset);
+    const maxVisible = 2;
+    if (absOffset > maxVisible) {
+      card.style.opacity = '0';
+      card.style.pointerEvents = 'none';
+      card.style.zIndex = '0';
+      return;
+    }
+    const translateX = offset * 200;
+    const translateZ = -absOffset * 120;
+    const rotateY = offset * -22;
+    const scale = 1 - absOffset * 0.12;
+    const opacity = 1 - absOffset * 0.35;
+    card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+    card.style.opacity = opacity;
+    card.style.zIndex = (10 - absOffset);
+    card.style.pointerEvents = 'auto';
+    if (offset === 0) {
+      card.style.boxShadow = '0 32px 80px rgba(0,0,0,0.7)';
+    } else {
+      card.style.boxShadow = '0 16px 40px rgba(0,0,0,0.4)';
+    }
+  });
+}
+
+document.getElementById('carouselNext').addEventListener('click', () => {
+  activeIdx = (activeIdx + 1) % portfolioItems.length;
+  positionCards();
+});
+document.getElementById('carouselPrev').addEventListener('click', () => {
+  activeIdx = (activeIdx - 1 + portfolioItems.length) % portfolioItems.length;
+  positionCards();
+});
+
+// Touch/drag support
+let startX = 0;
+track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+track.addEventListener('touchend', e => {
+  const diff = startX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) { diff > 0 ? document.getElementById('carouselNext').click() : document.getElementById('carouselPrev').click(); }
+});
+
+buildCards();
+
+/* ── CONTACT FORM ── */
+const form = document.getElementById('contactForm');
+const success = document.getElementById('formSuccess');
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = form.querySelector('.form-submit');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+    if (res.ok) { form.reset(); success.style.display = 'block'; btn.textContent = 'Sent ✓'; }
+    else { btn.textContent = 'Error — try again'; btn.disabled = false; }
+  } catch { btn.textContent = 'Error — try again'; btn.disabled = false; }
+});
+</script>
+</body>
+</html>
