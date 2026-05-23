@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -38,7 +38,7 @@
     .hero-eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
     .hero-eyebrow::before { content: ''; display: inline-block; width: 2.5rem; height: 1px; background: var(--accent); }
     .hero-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 5.5vw, 5rem); font-weight: 300; line-height: 1.1; color: var(--black); margin-bottom: 1.75rem; letter-spacing: -0.01em; }
-    .hero-heading em { font-style: italic; color: var(--accent-dark); }
+    .hero-heading em { font-family: 'Dancing Script', cursive; font-style: normal; color: var(--accent-dark); }
     .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; max-width: 420px; margin-bottom: 2.5rem; }
     .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
     .btn-primary { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--off-white); background: var(--black); text-decoration: none; padding: 0.85rem 2rem; border-radius: 2px; transition: background 0.2s, transform 0.15s; display: inline-block; }
@@ -113,6 +113,7 @@
     .style-sans { font-family: 'DM Sans', sans-serif; font-weight: 500; letter-spacing: 0.06em; }
     .style-mono { font-family: monospace; font-weight: 400; letter-spacing: 0.12em; }
     .style-elegant { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; }
+    .style-cursive { font-family: 'Dancing Script', cursive; font-weight: 500; letter-spacing: 0.06em; }
 
     /* ── SERVICES ── */
     #services { padding: 7rem 5vw; }
@@ -169,7 +170,6 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: #fff;
       pointer-events: none;
     }
     .portfolio-header {
@@ -426,7 +426,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
-      <h1 class="hero-heading">Brands that<br /><em>command attention</em><br />and trust</h1>
+      <h1 class="hero-heading">Brands that<br/><em>command attention</em><br />and trust</h1>
       <p class="hero-sub">I craft distinctive logos and visual identities for startups and businesses that want to stand out, not blend in.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="#contact">Get a Quote</a>
@@ -496,6 +496,7 @@
             <button class="style-pill" data-style="style-sans" data-size="1.8rem">Sans</button>
             <button class="style-pill" data-style="style-mono" data-size="1.5rem">Mono</button>
             <button class="style-pill" data-style="style-elegant" data-size="2.8rem">Elegant</button>
+            <button class="style-pill" data-style="style-cursive" data-size="1.8rem">Cursive</button>
           </div>
         </div>
         <p style="font-size:0.82rem;color:var(--mid-gray);font-weight:300;line-height:1.6;">This is a live preview of your name in different logo styles. The final design will be custom-crafted, not just a font choice.</p>
@@ -950,7 +951,7 @@
   document.getElementById('regenPalettes').addEventListener('click', renderPalettes);
 
   const portfolioItems = [
-    { src: 'img1.jpg', name: 'App Flier', type: 'Print · Brand Design' },
+    { src: 'img1.jpg', name: 'App Flyer', type: 'Print · Brand Design' },
     { src: 'img2.jpg', name: 'Brand Identity', type: 'Logo · Visual System' },
     { src: 'img3.jpg', name: 'Social Media Kit', type: 'Digital · Content Design' },
     { src: 'img9.png', name: 'Corporate Identity', type: 'Stationery · Brand' },
